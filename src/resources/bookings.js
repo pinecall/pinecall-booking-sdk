@@ -2,21 +2,6 @@ import { BOOKING_ACTIONS } from '../constants.js';
 
 /**
  * Bookings - Create and manage reservations
- * 
- * @example
- * ```js
- * // Create a booking
- * const booking = await client.bookings.create({
- *   configurationId: configId,
- *   resourceId: tableId,
- *   startTime: '2025-01-20T19:00:00Z',
- *   endTime: '2025-01-20T21:00:00Z',
- *   customer: { name: 'John Doe', email: 'john@example.com' }
- * });
- * 
- * // Confirm it
- * await client.bookings.confirm(booking.booking._id);
- * ```
  */
 export class Bookings {
   #http;
@@ -27,18 +12,12 @@ export class Bookings {
 
   /**
    * List bookings
-   * @param {string} configId - Configuration ID
    * @param {Object} params
-   * @param {string} params.startDate - Start date (YYYY-MM-DD)
-   * @param {string} params.endDate - End date (YYYY-MM-DD)
-   * @param {string|string[]} [params.status] - Filter by status
-   * @param {string} [params.resourceId] - Filter by resource
-   * @param {string} [params.search] - Search customer name/email
    * @returns {Promise<{bookings: Array}>}
    */
-  list(configId, params) {
+  list(params) {
     const query = {
-      configId,
+      configId: params.configurationId,
       startDate: params.startDate,
       endDate: params.endDate
     };
@@ -57,24 +36,13 @@ export class Bookings {
    * @param {string} id - Booking ID
    * @returns {Promise<{booking: Object}>}
    */
-  retrieve(id) {
+  get(id) {
     return this.#http.get('/api/bookings/manage', { id });
   }
 
   /**
    * Create a new booking
    * @param {Object} params
-   * @param {string} params.configurationId - Configuration ID
-   * @param {string} params.resourceId - Resource ID
-   * @param {string} params.startTime - Start time (ISO 8601)
-   * @param {string} [params.endTime] - End time (ISO 8601)
-   * @param {number} [params.duration] - Duration in minutes (alternative to endTime)
-   * @param {Object} params.customer - Customer info
-   * @param {string} params.customer.name - Customer name
-   * @param {string} [params.customer.email] - Customer email
-   * @param {string} [params.customer.phone] - Customer phone
-   * @param {Object} [params.attributes] - Booking attributes
-   * @param {string} [params.internalNotes] - Internal notes
    * @returns {Promise<{booking: Object}>}
    */
   create(params) {
@@ -84,7 +52,7 @@ export class Bookings {
   /**
    * Confirm a booking
    * @param {string} id - Booking ID
-   * @param {string} [reason] - Reason for confirmation
+   * @param {string} [reason] - Reason
    * @returns {Promise<{booking: Object}>}
    */
   confirm(id, reason) {
@@ -94,7 +62,7 @@ export class Bookings {
   /**
    * Cancel a booking
    * @param {string} id - Booking ID
-   * @param {string} [reason] - Reason for cancellation
+   * @param {string} [reason] - Reason
    * @returns {Promise<{booking: Object}>}
    */
   cancel(id, reason) {
@@ -104,7 +72,7 @@ export class Bookings {
   /**
    * Mark booking as completed
    * @param {string} id - Booking ID
-   * @param {string} [reason] - Reason/notes
+   * @param {string} [reason] - Reason
    * @returns {Promise<{booking: Object}>}
    */
   complete(id, reason) {
@@ -114,7 +82,7 @@ export class Bookings {
   /**
    * Mark booking as no-show
    * @param {string} id - Booking ID
-   * @param {string} [reason] - Reason/notes
+   * @param {string} [reason] - Reason
    * @returns {Promise<{booking: Object}>}
    */
   noShow(id, reason) {
@@ -125,14 +93,12 @@ export class Bookings {
    * Reschedule a booking
    * @param {string} id - Booking ID
    * @param {Object} params
-   * @param {string} params.startTime - New start time (ISO 8601)
-   * @param {string} params.endTime - New end time (ISO 8601)
    * @returns {Promise<{booking: Object}>}
    */
   reschedule(id, params) {
     return this.#action(id, BOOKING_ACTIONS.RESCHEDULE, {
-      newStartTime: params.startTime,
-      newEndTime: params.endTime
+      newStartTime: params.newStartTime,
+      newEndTime: params.newEndTime
     });
   }
 
@@ -140,8 +106,6 @@ export class Bookings {
    * Get booking statistics
    * @param {string} configId - Configuration ID
    * @param {Object} [params]
-   * @param {string} [params.startDate] - Start date
-   * @param {string} [params.endDate] - End date
    * @returns {Promise<{stats: Object}>}
    */
   stats(configId, params = {}) {

@@ -95,7 +95,7 @@ export class Pinecall {
   static futureDateTime(days = 1, hour = 12, minute = 0) {
     const date = new Date();
     date.setDate(date.getDate() + days);
-    date.setHours(hour, minute, 0, 0);
+    date.setUTCHours(hour, minute, 0, 0);
     return date.toISOString();
   }
 
