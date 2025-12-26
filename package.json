@@ -1,0 +1,47 @@
+{
+  "name": "@pinecall/booking-sdk",
+  "version": "1.0.0",
+  "description": "Simple, elegant SDK for Pinecall Booking API. Zero dependencies.",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./src/index.cjs"
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "test:watch": "node --test --watch test/*.test.js",
+    "example": "node examples/basic.js"
+  },
+  "keywords": [
+    "booking",
+    "reservations",
+    "scheduling",
+    "api",
+    "sdk",
+    "pinecall",
+    "restaurant",
+    "appointments"
+  ],
+  "author": "Pinecall <support@pinecall.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pinecall/booking-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pinecall/booking-sdk/issues"
+  },
+  "homepage": "https://pinecall.com/docs/booking-sdk",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ]
+}
