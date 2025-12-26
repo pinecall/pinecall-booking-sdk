@@ -30,7 +30,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pinecall/pinecall-booking-sdk.git"
+    "url": "git+https://github.com/pinecall/pinecall-booking-sdk.git"
   },
   "bugs": {
     "url": "https://github.com/pinecall/pinecall-booking-sdk/issues"
