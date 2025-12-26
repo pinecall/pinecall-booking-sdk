@@ -1,5 +1,5 @@
 {
-  "name": "@pinecall/booking-sdk",
+  "name": "@pinecall/pinecall-booking-sdk",
   "version": "1.0.0",
   "description": "Simple, elegant SDK for Pinecall Booking API. Zero dependencies.",
   "main": "src/index.js",
@@ -30,12 +30,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pinecall/booking-sdk.git"
+    "url": "https://github.com/pinecall/pinecall-booking-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/pinecall/booking-sdk/issues"
+    "url": "https://github.com/pinecall/pinecall-booking-sdk/issues"
   },
-  "homepage": "https://pinecall.com/docs/booking-sdk",
+  "homepage": "https://pinecall.io/docs/pinecall-booking-sdk",
   "engines": {
     "node": ">=18.0.0"
   },

@@ -4,7 +4,7 @@
 
 **Official JavaScript SDK for the Pinecall Booking API**
 
-[![npm version](https://img.shields.io/npm/v/@pinecall/booking-sdk.svg)](https://www.npmjs.com/package/@pinecall/booking-sdk)
+[![npm version](https://img.shields.io/npm/v/@pinecall/pinecall-booking-sdk.svg)](https://www.npmjs.com/package/@pinecall/pinecall-booking-sdk)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -21,7 +21,7 @@
 ## Installation
 
 ```bash
-npm install @pinecall/booking-sdk
+npm install @pinecall/pinecall-booking-sdk
 ```
 
 ---
@@ -29,7 +29,7 @@ npm install @pinecall/booking-sdk
 ## Quick Start
 
 ```javascript
-import { Pinecall } from '@pinecall/booking-sdk';
+import { Pinecall } from '@pinecall/pinecall-booking-sdk';
 
 const client = new Pinecall('pk_your_api_key');
 
@@ -95,7 +95,7 @@ await client.bookings.confirm(booking.booking._id);
 ### Client Initialization
 
 ```javascript
-import { Pinecall } from '@pinecall/booking-sdk';
+import { Pinecall } from '@pinecall/pinecall-booking-sdk';
 
 // Simple
 const client = new Pinecall('pk_your_api_key');
@@ -258,7 +258,7 @@ const stats = await client.bookings.stats('config_id', '2025-01-01', '2025-01-31
 ### Static Helpers
 
 ```javascript
-import { Pinecall } from '@pinecall/booking-sdk';
+import { Pinecall } from '@pinecall/pinecall-booking-sdk';
 
 // Get date N days in the future (YYYY-MM-DD)
 Pinecall.futureDate(7);        // '2025-01-27'
@@ -278,7 +278,7 @@ Pinecall.formatDateTime(new Date()); // '2025-01-20T15:30:00.000Z'
 ## Error Handling
 
 ```javascript
-import { Pinecall, PinecallError, ValidationError, NotFoundError, ConflictError } from '@pinecall/booking-sdk';
+import { Pinecall, PinecallError, ValidationError, NotFoundError, ConflictError } from '@pinecall/pinecall-booking-sdk';
 
 try {
   const booking = await client.bookings.create({ ... });
@@ -300,7 +300,7 @@ try {
 ## Constants
 
 ```javascript
-import { BOOKING_STATUS, BUSINESS_TYPES } from '@pinecall/booking-sdk';
+import { BOOKING_STATUS, BUSINESS_TYPES } from '@pinecall/pinecall-booking-sdk';
 
 BOOKING_STATUS.PENDING    // 'pending'
 BOOKING_STATUS.CONFIRMED  // 'confirmed'
@@ -337,4 +337,4 @@ See the [examples](./examples) directory for complete working examples:
 
 ## License
 
-MIT © [Pinecall](https://pinecall.com)
+MIT © [Pinecall](https://pinecall.io)
