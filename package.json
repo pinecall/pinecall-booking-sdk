@@ -1,6 +1,6 @@
 {
   "name": "@pinecall/pinecall-booking-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple, elegant SDK for Pinecall Booking API. Zero dependencies.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
